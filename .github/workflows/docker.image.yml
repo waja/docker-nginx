@@ -5,10 +5,9 @@ on:
     branches: 
       - $default-branch
       - development
+      - master
+  # Run tests for any PRs
   pull_request:
-    branches:
-      - $default-branch
-      - development
 
 env:
   IMAGE_NAME: nginx
