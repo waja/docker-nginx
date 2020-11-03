@@ -11,10 +11,20 @@ on:
       - development
 
 jobs:
-
+  lint-docker-file:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: lint zammad dockerfile
+      uses: brpaz/hadolint-action@master
+      with:
+        dockerfile: Dockerfile
   build:
+    needs:
+      - lint-docker-file
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+      run: docker build . --file Dockerfile --build-arg BUILD_DATE="$(date -u +'%Y-%m-%dT%H:%M:%SZ')" --tag my-image-name:$(date +%s)
