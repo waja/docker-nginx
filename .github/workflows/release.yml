@@ -7,7 +7,7 @@ on:
   push:
     # push on all tags
     tags:
-      # - "v*.*.*"
+      - '*.*.*-*'
     branches:
       - master
       - development
