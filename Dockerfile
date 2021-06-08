@@ -15,7 +15,8 @@ LABEL org.label-schema.name="Nginx webserver" \
     org.label-schema.version="${BUILD_VERSION:-unknown}" \
     org.label-schema.vcs-url="${VCS_URL:-unknown}" \
     org.label-schema.vcs-ref="${VCS_REF:-unknown}" \
-    org.label-schema.vcs-branch="${VCS_BRANCH:-unknown}"
+    org.label-schema.vcs-branch="${VCS_BRANCH:-unknown}" \
+    org.opencontainers.image.source="https://github.com/Cyconet/docker-nginx"
 
 RUN apk --no-cache update && apk --no-cache upgrade && \
     # Install needed packages
