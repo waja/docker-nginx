@@ -1,4 +1,4 @@
-FROM alpine:3.13
+FROM alpine:3.14.0
 
 ARG BUILD_DATE
 ARG BUILD_VERSION
@@ -7,7 +7,8 @@ ARG VCS_REF
 ARG VCS_BRANCH
 
 # See http://label-schema.org/rc1/ and https://microbadger.com/labels
-LABEL org.label-schema.name="Nginx webserver" \
+LABEL maintainer="Jan Wagner <waja@cyconet.org>" \
+    org.label-schema.name="Nginx webserver" \
     org.label-schema.description="Alpine Linux container with installed nginx package" \
     org.label-schema.vendor="Cyconet" \
     org.label-schema.schema-version="1.0" \
@@ -18,6 +19,7 @@ LABEL org.label-schema.name="Nginx webserver" \
     org.label-schema.vcs-branch="${VCS_BRANCH:-unknown}" \
     org.opencontainers.image.source="https://github.com/waja/docker-nginx"
 
+# hadolint ignore=DL3017,DL3018
 RUN apk --no-cache update && apk --no-cache upgrade && \
     # Install needed packages
     apk add --update --no-cache nginx && rm -rf /var/cache/apk/* && \

@@ -1,3 +1,4 @@
+<!-- markdownlint-disable MD045 -->
 # Docker-NGINX
 
 [![](https://images.microbadger.com/badges/version/waja/nginx.svg)](https://hub.docker.com/r/waja/nginx/)
