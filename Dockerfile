@@ -22,7 +22,7 @@ LABEL maintainer="Jan Wagner <waja@cyconet.org>" \
 # hadolint ignore=DL3017,DL3018
 RUN apk --no-cache update && apk --no-cache upgrade && \
     # Install needed packages
-    apk add --update --no-cache nginx && rm -rf /var/cache/apk/* && \
+    apk add --update --no-cache nginx nginx-mod-http-fancyindex && rm -rf /var/cache/apk/* && \
     # create needed directories
     mkdir -p /run/nginx/ && \
     # forward request and error logs to docker log collector
